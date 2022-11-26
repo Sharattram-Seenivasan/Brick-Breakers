@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://fonts/pokemon-frlg.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://addons/github-integration/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://backgrounds/start_screen_background_1080x1920.jpg" type="Texture" id=2]
 [ext_resource path="res://icons/large.png" type="Texture" id=3]
 [ext_resource path="res://icons/medium.png" type="Texture" id=4]
@@ -8,8 +8,9 @@
 [ext_resource path="res://icons/slow.png" type="Texture" id=6]
 [ext_resource path="res://icons/off_button.png" type="Texture" id=7]
 [ext_resource path="res://icons/fast.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Settings.gd" type="Script" id=9]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 135
 font_data = ExtResource( 1 )
 
@@ -18,13 +19,7 @@ size = 75
 font_data = ExtResource( 1 )
 
 [node name="SettingScreen" type="Node2D"]
-
-[node name="Colorblind Button" type="Button" parent="."]
-margin_left = 56.0
-margin_top = 1343.0
-margin_right = 324.0
-margin_bottom = 1605.0
-icon = ExtResource( 7 )
+script = ExtResource( 9 )
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 780.0
@@ -50,7 +45,7 @@ margin_left = 2.0
 margin_top = 14.0
 margin_right = 1075.0
 margin_bottom = 267.0
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]Settings[/center]"
 text = "Settings"
@@ -150,7 +145,7 @@ bbcode_enabled = true
 bbcode_text = "Paddle Size"
 text = "Paddle Size"
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="ColorblindButton" type="TextureButton" parent="."]
 margin_left = 27.0
 margin_top = 1513.0
 margin_right = 286.0
