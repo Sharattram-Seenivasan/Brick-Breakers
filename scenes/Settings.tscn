@@ -1,0 +1,168 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://fonts/pokemon-frlg.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://backgrounds/start_screen_background_1080x1920.jpg" type="Texture" id=2]
+[ext_resource path="res://icons/large.png" type="Texture" id=3]
+[ext_resource path="res://icons/medium.png" type="Texture" id=4]
+[ext_resource path="res://icons/small.png" type="Texture" id=5]
+[ext_resource path="res://icons/slow.png" type="Texture" id=6]
+[ext_resource path="res://icons/off_button.png" type="Texture" id=7]
+[ext_resource path="res://icons/fast.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 135
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 75
+font_data = ExtResource( 1 )
+
+[node name="SettingScreen" type="Node2D"]
+
+[node name="Colorblind Button" type="Button" parent="."]
+margin_left = 56.0
+margin_top = 1343.0
+margin_right = 324.0
+margin_bottom = 1605.0
+icon = ExtResource( 7 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 780.0
+margin_bottom = 1280.0
+texture = ExtResource( 2 )
+stretch_mode = 3
+
+[node name="SoundEffectsSlider" type="HSlider" parent="."]
+margin_left = 51.0
+margin_top = 384.0
+margin_right = 984.0
+margin_bottom = 520.0
+max_value = 1.0
+step = 0.05
+tick_count = 2
+ticks_on_borders = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 2.0
+margin_top = 14.0
+margin_right = 1075.0
+margin_bottom = 267.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Settings[/center]"
+text = "Settings"
+
+[node name="Sound Effects Volume Label" type="RichTextLabel" parent="."]
+margin_left = 48.0
+margin_top = 260.0
+margin_right = 1121.0
+margin_bottom = 513.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Sound Effects Volume"
+text = "Sound Effects Volume"
+
+[node name="Music Volume Label" type="RichTextLabel" parent="."]
+margin_left = 53.0
+margin_top = 512.0
+margin_right = 1126.0
+margin_bottom = 765.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Music Volume"
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="."]
+margin_left = 43.0
+margin_top = 650.0
+margin_right = 976.0
+margin_bottom = 786.0
+max_value = 1.0
+step = 0.05
+tick_count = 2
+ticks_on_borders = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="FastButton" type="TextureButton" parent="."]
+margin_left = 740.0
+margin_top = 918.0
+margin_right = 1083.0
+margin_bottom = 1036.0
+texture_normal = ExtResource( 8 )
+
+[node name="BallMediumButton" type="TextureButton" parent="."]
+margin_left = 363.0
+margin_top = 920.0
+margin_right = 745.0
+margin_bottom = 1031.0
+texture_normal = ExtResource( 4 )
+
+[node name="SlowButton" type="TextureButton" parent="."]
+margin_left = 11.0
+margin_top = 923.0
+margin_right = 346.0
+margin_bottom = 1032.0
+texture_normal = ExtResource( 6 )
+
+[node name="LargeButton" type="TextureButton" parent="."]
+margin_left = 740.0
+margin_top = 1197.0
+margin_right = 1083.0
+margin_bottom = 1315.0
+texture_normal = ExtResource( 3 )
+
+[node name="PaddleMediumButton" type="TextureButton" parent="."]
+margin_left = 362.0
+margin_top = 1200.0
+margin_right = 752.0
+margin_bottom = 1319.0
+texture_normal = ExtResource( 4 )
+
+[node name="SmallButton" type="TextureButton" parent="."]
+margin_left = 19.0
+margin_top = 1200.0
+margin_right = 354.0
+margin_bottom = 1309.0
+texture_normal = ExtResource( 5 )
+
+[node name="Ball Speed Label" type="RichTextLabel" parent="."]
+margin_left = 48.0
+margin_top = 755.0
+margin_right = 1121.0
+margin_bottom = 891.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Ball Speed"
+text = "Ball Speed"
+
+[node name="Paddle Size Label" type="RichTextLabel" parent="."]
+margin_left = 42.0
+margin_top = 1054.0
+margin_right = 1115.0
+margin_bottom = 1190.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Paddle Size"
+text = "Paddle Size"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 27.0
+margin_top = 1513.0
+margin_right = 286.0
+margin_bottom = 1769.0
+texture_normal = ExtResource( 7 )
+
+[node name="Colorblind Label" type="RichTextLabel" parent="."]
+margin_left = 37.0
+margin_top = 1388.0
+margin_right = 1110.0
+margin_bottom = 1524.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Colorblind Mode"
+text = "Colorblind Mode"

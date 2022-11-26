@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/pokemon-frlg.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://icons/PlayButton.png" type="Texture" id=2]
+[ext_resource path="res://backgrounds/start_screen_background_1080x1920.jpg" type="Texture" id=3]
+[ext_resource path="res://icons/settings-icon-16.png" type="Texture" id=4]
+[ext_resource path="res://icons/Undeafened.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 135
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 1 )
+
+[node name="StartScreen" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 780.0
+margin_bottom = 1280.0
+texture = ExtResource( 3 )
+stretch_mode = 3
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 2.0
+margin_top = 14.0
+margin_right = 1075.0
+margin_bottom = 267.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Brick Breakers[/center]"
+text = "Brick Breakers"
+
+[node name="PlayButton" type="TextureButton" parent="."]
+margin_left = 119.0
+margin_top = 194.0
+margin_right = 925.0
+margin_bottom = 852.0
+texture_normal = ExtResource( 2 )
+expand = true
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+margin_left = 18.0
+margin_top = 912.0
+margin_right = 272.0
+margin_bottom = 1151.0
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="SettingsLabel" type="RichTextLabel" parent="."]
+margin_left = 306.0
+margin_top = 953.0
+margin_right = 790.0
+margin_bottom = 1152.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Settings"
+text = "Settings"
+
+[node name="MuteButton" type="TextureButton" parent="."]
+margin_left = 45.0
+margin_top = 1215.0
+margin_right = 301.0
+margin_bottom = 1471.0
+texture_normal = ExtResource( 5 )
