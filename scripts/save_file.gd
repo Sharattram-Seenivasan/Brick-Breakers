@@ -21,8 +21,8 @@ func load_data():
 	var file = File.new()
 	if not file.file_exists(SAVE_FILE):
 		game_data = {
-			"sound_effects_volume": 1.0,
-			"music_volume": 1.0,
+			"sound_effects_volume": 0.0,
+			"music_volume": 0.0,
 			"ball_speed": 2,
 			"paddle_size": 2,
 			"colorblind_mode": 0

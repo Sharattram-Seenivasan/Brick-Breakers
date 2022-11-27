@@ -21,9 +21,22 @@ onready var save_file = SaveFile.game_data
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	musicSlider.set_value(save_file["music_volume"])
+	soundEffectsSlider.set_value(save_file["sound_effects_volume"])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	musicSlider.set_value(save_file["music_volume"])
+	soundEffectsSlider.set_value(save_file["sound_effects_volume"])
+
+
+func _on_SoundEffectsSlider_drag_ended(value_changed):
+	if value_changed:
+		print("changed")
+
+
+func _on_MusicSlider_drag_ended(value_changed):
+	if value_changed:
+		save_file["music_volume"] = musicSlider.get_value()
+		SaveFile.save_data()
