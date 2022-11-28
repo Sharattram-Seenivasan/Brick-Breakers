@@ -1,0 +1,35 @@
+extends Node2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+var brick = preload("res://scenes/brick/Brick.tscn")
+var brick_width = 64
+var brick_height = 32
+
+var x_start = 0 + brick_width
+var y_start = 100
+
+var x_end = 1080
+var y_end = 740
+
+var rng = RandomNumberGenerator.new()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():	
+	var x = x_start
+	while x <= x_end:
+		var y = y_start
+		while y <= y_end:
+			rng.randomize()
+			if rng.randf() <= 0.33:
+				var newBrick = brick.instance()
+				newBrick.position = Vector2(x, y)
+				add_child(newBrick)
+			y += brick_height
+		x += brick_width
+
+
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+##func _process(delta):
+##	pass

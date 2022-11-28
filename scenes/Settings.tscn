@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://backgrounds/start_screen_background_1080x1920.jpg" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://icons/off_button.png" type="Texture" id=7]
 [ext_resource path="res://icons/fast.png" type="Texture" id=8]
 [ext_resource path="res://scenes/Settings.gd" type="Script" id=9]
+[ext_resource path="res://icons/exit-icon-23.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=3]
 size = 135
@@ -22,8 +23,8 @@ font_data = ExtResource( 1 )
 script = ExtResource( 9 )
 
 [node name="Background" type="TextureRect" parent="."]
-margin_right = 780.0
-margin_bottom = 1280.0
+margin_right = 1080.0
+margin_bottom = 1920.0
 texture = ExtResource( 2 )
 stretch_mode = 3
 
@@ -45,7 +46,7 @@ __meta__ = {
 margin_left = 2.0
 margin_top = 14.0
 margin_right = 1075.0
-margin_bottom = 267.0
+margin_bottom = 175.0
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]Settings[/center]"
@@ -164,5 +165,14 @@ bbcode_enabled = true
 bbcode_text = "Colorblind Mode"
 text = "Colorblind Mode"
 
+[node name="ExitButton" type="TextureButton" parent="."]
+margin_left = 932.0
+margin_top = 40.0
+margin_right = 1252.0
+margin_bottom = 347.0
+rect_scale = Vector2( 0.35, 0.35 )
+texture_normal = ExtResource( 10 )
+
 [connection signal="drag_ended" from="SoundEffectsSlider" to="." method="_on_SoundEffectsSlider_drag_ended"]
 [connection signal="drag_ended" from="MusicSlider" to="." method="_on_MusicSlider_drag_ended"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

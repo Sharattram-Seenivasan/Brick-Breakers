@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends StaticBody2D
 
 
 # Declare member variables here. Examples:
@@ -16,18 +16,18 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func _physics_process(delta):
+func _process(delta):
 	move()
+	position += velocity * delta
+	position.x = clamp(position.x, 0, 1080)
 
 func move():
+	velocity = Vector2()
 	if is_moving_right:
-		velocity.x =  MOVE_SPEED
+		velocity.x += 1 
 	if is_moving_left:
-		velocity.x = -MOVE_SPEED
-	move_and_slide(velocity, Vector2.UP)
+		velocity.x += -1
+	velocity = velocity.normalized()*MOVE_SPEED
 	
 func setMovingRight(isMovingRight):
 	is_moving_right = isMovingRight
