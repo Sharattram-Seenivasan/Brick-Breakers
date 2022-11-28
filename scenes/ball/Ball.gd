@@ -2,17 +2,16 @@ extends KinematicBody2D
 
 signal scored(hit_point)
 
-var speed = 250
+var MOVE_SPEED = 650
 
 var velocity = Vector2()
 var screen_size
-var damage = 3
 
 func _ready():
 	get_viewport().set_size(Vector2(1080,1920))
 	screen_size = get_viewport_rect().size	
 	position = Vector2(screen_size.x/ 2, screen_size.y - 600)
-	velocity = Vector2(0, -1) * speed
+	velocity = Vector2(-1, -1) * MOVE_SPEED
 	
 	
 func _physics_process(delta):
