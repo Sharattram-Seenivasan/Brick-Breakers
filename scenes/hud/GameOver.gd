@@ -18,6 +18,7 @@ func _ready():
 
 func _on_ReplayButton_pressed():
 	SaveFile.sessionScore = 0
+	SaveFile.sessionTime = 0
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

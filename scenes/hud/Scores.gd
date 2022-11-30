@@ -9,7 +9,7 @@ onready var ScoreLabel = $Score
 onready var HighScoreLabel = $HighScore
 onready var TimeLabel = $Time
 #var score = SaveFile.sessionScore
-var time = 0
+#var time = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,8 +20,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	time += delta
-	TimeLabel.bbcode_text = "[color=black] Time: " + str(int(time)) + "[/color]"
+	SaveFile.sessionTime += delta
+	TimeLabel.bbcode_text = "[color=black] Time: " + str(int(SaveFile.sessionTime)) + "[/color]"
 
 func brick_destroyed():
 	SaveFile.sessionScore += 5

@@ -20,6 +20,8 @@ func _ready():
 
 func _on_ExitButton_pressed():
 	get_tree().paused = false
+	SaveFile.sessionScore = 0
+	SaveFile.sessionTime = 0
 	get_tree().change_scene("res://scenes/StartScreen.tscn")
 
 
