@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://backgrounds/start_screen_background_1080x1920.jpg" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://icons/medium_pressed.png" type="Texture" id=14]
 [ext_resource path="res://icons/fast_pressed.png" type="Texture" id=15]
 [ext_resource path="res://icons/large_pressed.png" type="Texture" id=16]
+[ext_resource path="res://icons/small_pressed.png" type="Texture" id=17]
+[ext_resource path="res://icons/ticker.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=3]
 size = 135
@@ -46,6 +48,7 @@ margin_left = 51.0
 margin_top = 384.0
 margin_right = 984.0
 margin_bottom = 520.0
+custom_icons/grabber = ExtResource( 18 )
 min_value = -60.0
 max_value = 0.0
 step = 5.0
@@ -90,6 +93,7 @@ margin_left = 43.0
 margin_top = 650.0
 margin_right = 976.0
 margin_bottom = 786.0
+custom_icons/grabber = ExtResource( 18 )
 min_value = -60.0
 max_value = 0.0
 step = 5.0
@@ -157,7 +161,7 @@ margin_bottom = 1309.0
 toggle_mode = true
 group = SubResource( 5 )
 texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 13 )
+texture_pressed = ExtResource( 17 )
 
 [node name="Ball Speed Label" type="RichTextLabel" parent="."]
 margin_left = 48.0
