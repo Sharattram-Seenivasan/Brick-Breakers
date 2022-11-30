@@ -6,9 +6,10 @@ extends Node2D
 var brick = preload("res://scenes/brick/Brick.tscn")
 var brick_width = 64
 var brick_height = 32
+var brick_count = 0
 
 var x_start = 0 + brick_width
-var y_start = 100
+var y_start = 200
 
 var x_end = 1080
 var y_end = 740
@@ -26,6 +27,9 @@ func _ready():
 				var newBrick = brick.instance()
 				newBrick.position = Vector2(x, y)
 				add_child(newBrick)
+				newBrick.connect("brick_destroyed", get_parent().get_node("Scores"), "brick_destroyed")
+				newBrick.connect("brick_destroyed", get_parent(), "brick_destroyed")
+				brick_count+=1
 			y += brick_height
 		x += brick_width
 

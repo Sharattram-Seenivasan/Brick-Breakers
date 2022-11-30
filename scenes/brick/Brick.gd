@@ -12,6 +12,7 @@ onready var brick_sprite = get_node("BrickSprite")
 
 var health = 3
 
+signal brick_destroyed
 
 # Called when the node enters the scene tree for the first time.
 #func _ready():
@@ -36,4 +37,5 @@ func damage():
 	health -= 1
 	switch_texture(health)
 	if health <= 0:
+		emit_signal("brick_destroyed")
 		queue_free()

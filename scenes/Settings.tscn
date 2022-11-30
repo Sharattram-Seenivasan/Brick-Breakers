@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://backgrounds/start_screen_background_1080x1920.jpg" type="Texture" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://icons/fast.png" type="Texture" id=8]
 [ext_resource path="res://scenes/Settings.gd" type="Script" id=9]
 [ext_resource path="res://icons/exit-icon-23.png" type="Texture" id=10]
+[ext_resource path="res://icons/on_button.png" type="Texture" id=11]
+[ext_resource path="res://addons/paulloz.colorblindness/colorblindness.gd" type="Script" id=12]
+[ext_resource path="res://icons/slow_pressed.png" type="Texture" id=13]
+[ext_resource path="res://icons/medium_pressed.png" type="Texture" id=14]
+[ext_resource path="res://icons/fast_pressed.png" type="Texture" id=15]
+[ext_resource path="res://icons/large_pressed.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=3]
 size = 135
@@ -19,8 +25,15 @@ font_data = ExtResource( 1 )
 size = 75
 font_data = ExtResource( 1 )
 
+[sub_resource type="ButtonGroup" id=4]
+
+[sub_resource type="ButtonGroup" id=5]
+
 [node name="SettingScreen" type="Node2D"]
 script = ExtResource( 9 )
+
+[node name="Colorblindness" type="CanvasLayer" parent="."]
+script = ExtResource( 12 )
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 1080.0
@@ -49,7 +62,7 @@ margin_right = 1075.0
 margin_bottom = 175.0
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[center]Settings[/center]"
+bbcode_text = "[center][color=black]Settings[/color][/center]"
 text = "Settings"
 
 [node name="Sound Effects Volume Label" type="RichTextLabel" parent="."]
@@ -59,7 +72,7 @@ margin_right = 1121.0
 margin_bottom = 352.0
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "Sound Effects Volume"
+bbcode_text = "[color=black]Sound Effects Volume[/color]"
 text = "Sound Effects Volume"
 
 [node name="Music Volume Label" type="RichTextLabel" parent="."]
@@ -69,7 +82,7 @@ margin_right = 1126.0
 margin_bottom = 615.0
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "Music Volume"
+bbcode_text = "[color=black]Music Volume"
 text = "Music Volume"
 
 [node name="MusicSlider" type="HSlider" parent="."]
@@ -91,42 +104,60 @@ margin_left = 740.0
 margin_top = 918.0
 margin_right = 1083.0
 margin_bottom = 1036.0
+toggle_mode = true
+group = SubResource( 4 )
 texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 15 )
 
 [node name="BallMediumButton" type="TextureButton" parent="."]
 margin_left = 363.0
 margin_top = 920.0
 margin_right = 745.0
 margin_bottom = 1031.0
+toggle_mode = true
+group = SubResource( 4 )
 texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 14 )
 
 [node name="SlowButton" type="TextureButton" parent="."]
 margin_left = 11.0
 margin_top = 923.0
 margin_right = 346.0
 margin_bottom = 1032.0
+toggle_mode = true
+group = SubResource( 4 )
 texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 13 )
 
 [node name="LargeButton" type="TextureButton" parent="."]
 margin_left = 740.0
 margin_top = 1197.0
 margin_right = 1083.0
 margin_bottom = 1315.0
+toggle_mode = true
+group = SubResource( 5 )
 texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 16 )
 
 [node name="PaddleMediumButton" type="TextureButton" parent="."]
 margin_left = 362.0
 margin_top = 1200.0
 margin_right = 752.0
 margin_bottom = 1319.0
+toggle_mode = true
+group = SubResource( 5 )
 texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 14 )
 
 [node name="SmallButton" type="TextureButton" parent="."]
 margin_left = 19.0
 margin_top = 1200.0
 margin_right = 354.0
 margin_bottom = 1309.0
+toggle_mode = true
+group = SubResource( 5 )
 texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 13 )
 
 [node name="Ball Speed Label" type="RichTextLabel" parent="."]
 margin_left = 48.0
@@ -135,7 +166,7 @@ margin_right = 1121.0
 margin_bottom = 891.0
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "Ball Speed"
+bbcode_text = "[color=black]Ball Speed"
 text = "Ball Speed"
 
 [node name="Paddle Size Label" type="RichTextLabel" parent="."]
@@ -145,7 +176,7 @@ margin_right = 1115.0
 margin_bottom = 1190.0
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "Paddle Size"
+bbcode_text = "[color=black]Paddle Size"
 text = "Paddle Size"
 
 [node name="ColorblindButton" type="TextureButton" parent="."]
@@ -153,7 +184,9 @@ margin_left = 27.0
 margin_top = 1513.0
 margin_right = 286.0
 margin_bottom = 1769.0
+toggle_mode = true
 texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 11 )
 
 [node name="Colorblind Label" type="RichTextLabel" parent="."]
 margin_left = 37.0
@@ -162,7 +195,7 @@ margin_right = 1110.0
 margin_bottom = 1524.0
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "Colorblind Mode"
+bbcode_text = "[color=black]Colorblind Mode"
 text = "Colorblind Mode"
 
 [node name="ExitButton" type="TextureButton" parent="."]
@@ -175,4 +208,11 @@ texture_normal = ExtResource( 10 )
 
 [connection signal="drag_ended" from="SoundEffectsSlider" to="." method="_on_SoundEffectsSlider_drag_ended"]
 [connection signal="drag_ended" from="MusicSlider" to="." method="_on_MusicSlider_drag_ended"]
+[connection signal="toggled" from="FastButton" to="." method="_on_FastButton_toggled"]
+[connection signal="toggled" from="BallMediumButton" to="." method="_on_BallMediumButton_toggled"]
+[connection signal="toggled" from="SlowButton" to="." method="_on_SlowButton_toggled"]
+[connection signal="toggled" from="LargeButton" to="." method="_on_LargeButton_toggled"]
+[connection signal="toggled" from="PaddleMediumButton" to="." method="_on_PaddleMediumButton_toggled"]
+[connection signal="toggled" from="SmallButton" to="." method="_on_SmallButton_toggled"]
+[connection signal="toggled" from="ColorblindButton" to="." method="_on_ColorblindButton_toggled"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

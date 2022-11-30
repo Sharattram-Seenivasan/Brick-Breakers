@@ -1,6 +1,8 @@
 extends Node
 
 const SAVE_FILE = "user://save_file.save"
+
+var sessionScore = 0
 var game_data = {}
 
 
@@ -23,9 +25,10 @@ func load_data():
 		game_data = {
 			"sound_effects_volume": 0.0,
 			"music_volume": 0.0,
-			"ball_speed": 2,
-			"paddle_size": 2,
-			"colorblind_mode": 0
+			"ball_speed": 650,
+			"paddle_size": 0.5,
+			"colorblind_mode": false,
+			"high_score": 0,
 		}
 		save_data()
 	file.open(SAVE_FILE, File.READ)

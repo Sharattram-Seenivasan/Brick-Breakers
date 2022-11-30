@@ -11,6 +11,7 @@ onready var largeButton = $"LargeButton"
 onready var PaddleMediumButton = $"PaddleMediumButton"
 onready var SmallButton = $"SmallButton"
 onready var ColorblindButton = $"ColorblindButton"
+onready var colorblindnessLayer = $"Colorblindness"
 
 onready var save_file = SaveFile.game_data
 
@@ -24,17 +25,38 @@ func _ready():
 	get_viewport().set_size(Vector2(1080,1920))
 	musicSlider.set_value(save_file["music_volume"])
 	soundEffectsSlider.set_value(save_file["sound_effects_volume"])
+	
+	if save_file["colorblind_mode"]:
+		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
+		ColorblindButton.set_pressed_no_signal(true)
+		
+	if save_file["ball_speed"] == 450:
+		slowButton.pressed = true
+	elif save_file["ball_speed"] == 650:
+		ballMediumButton.pressed = true
+	elif save_file["ball_speed"] == 850:
+		fastButton.pressed = true
+	
+	if save_file["paddle_size"] == 0.75:
+		largeButton.pressed = true
+	elif save_file["paddle_size"] == 0.50:
+		PaddleMediumButton.pressed = true
+	elif save_file["paddle_size"] == 0.25:
+		SmallButton.pressed = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	musicSlider.set_value(save_file["music_volume"])
-#	soundEffectsSlider.set_value(save_file["sound_effects_volume"])
+func _process(delta):
+	if save_file["colorblind_mode"]:
+		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
+	else:
+		colorblindnessLayer.Type = colorblindnessLayer.TYPE.None
 
 
 func _on_SoundEffectsSlider_drag_ended(value_changed):
 	if value_changed:
-		print("changed")
+		save_file["sound_effects_volume"] = soundEffectsSlider.get_value()
+		SaveFile.save_data()
 
 
 func _on_MusicSlider_drag_ended(value_changed):
@@ -45,3 +67,38 @@ func _on_MusicSlider_drag_ended(value_changed):
 
 func _on_ExitButton_pressed():
 	get_tree().change_scene("res://scenes/StartScreen.tscn")
+
+
+func _on_ColorblindButton_toggled(button_pressed):
+	save_file["colorblind_mode"] = !save_file["colorblind_mode"]
+	SaveFile.save_data()
+
+
+func _on_SlowButton_toggled(_button_pressed):
+	save_file["ball_speed"] = 450
+	SaveFile.save_data()
+
+func _on_BallMediumButton_toggled(_button_pressed):
+	save_file["ball_speed"] = 650
+	SaveFile.save_data()
+
+func _on_FastButton_toggled(_button_pressed):
+	save_file["ball_speed"] = 850
+	SaveFile.save_data()
+
+
+
+
+func _on_LargeButton_toggled(button_pressed):
+	save_file["paddle_size"] = 0.75 
+	SaveFile.save_data()
+
+
+func _on_PaddleMediumButton_toggled(button_pressed):
+	save_file["paddle_size"] = 0.5
+	SaveFile.save_data()
+
+
+func _on_SmallButton_toggled(button_pressed):
+	save_file["paddle_size"] = 0.25
+	SaveFile.save_data()
