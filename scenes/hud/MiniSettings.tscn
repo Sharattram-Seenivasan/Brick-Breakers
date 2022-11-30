@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://icons/settings-icon-16.png" type="Texture" id=2]
 [ext_resource path="res://scenes/hud/MiniSettings.gd" type="Script" id=3]
+[ext_resource path="res://icons/ticker.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.176471, 0.964706, 0.0627451, 1 )
@@ -46,28 +47,33 @@ rect_min_size = Vector2( 532, 532 )
 custom_styles/panel = SubResource( 1 )
 
 [node name="Title" type="RichTextLabel" parent="SettingsPanel"]
-margin_right = 520.0
-margin_bottom = 72.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 522.0
+margin_bottom = 522.0
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[color=black][center]Settings"
 text = "Settings"
 
 [node name="Music Volume" type="RichTextLabel" parent="SettingsPanel"]
-margin_left = 11.0
-margin_top = 103.0
-margin_right = 372.0
-margin_bottom = 175.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 522.0
+margin_bottom = 522.0
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[color=black]Music Volume"
 text = "Music Volume"
 
 [node name="musicSlider" type="HSlider" parent="SettingsPanel"]
-margin_left = 25.0
-margin_top = 180.0
-margin_right = 475.0
-margin_bottom = 200.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 522.0
+margin_bottom = 522.0
+custom_icons/grabber_disabled = ExtResource( 4 )
+custom_icons/grabber_highlight = ExtResource( 4 )
+custom_icons/grabber = ExtResource( 4 )
 min_value = -60.0
 max_value = 0.0
 step = 5.0
@@ -75,10 +81,10 @@ tick_count = 2
 ticks_on_borders = true
 
 [node name="Sound Effects Volume" type="RichTextLabel" parent="SettingsPanel"]
-margin_left = 16.0
-margin_top = 211.0
+margin_left = 10.0
+margin_top = 10.0
 margin_right = 522.0
-margin_bottom = 348.0
+margin_bottom = 522.0
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[color=black]Sound Effects Volume
@@ -87,10 +93,13 @@ text = "Sound Effects Volume
 "
 
 [node name="soundEffectsSlider" type="HSlider" parent="SettingsPanel"]
-margin_left = 29.0
-margin_top = 357.0
-margin_right = 479.0
-margin_bottom = 377.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 522.0
+margin_bottom = 522.0
+custom_icons/grabber_disabled = ExtResource( 4 )
+custom_icons/grabber_highlight = ExtResource( 4 )
+custom_icons/grabber = ExtResource( 4 )
 min_value = -60.0
 max_value = 0.0
 step = 5.0

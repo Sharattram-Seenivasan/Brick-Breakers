@@ -19,6 +19,11 @@ func _ready():
 	
 	if save_file["colorblind_mode"]:
 		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
+	
+	if audio_player.get_volume_db() <= -60:
+		muteButton.set_normal_texture(deafened)
+	else:
+		muteButton.set_normal_texture(undeafened)
 #
 #
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +32,8 @@ func _process(delta):
 		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
 	else:
 		colorblindnessLayer.Type = colorblindnessLayer.TYPE.None
+	
+	audio_player.set_volume_db(save_file["music_volume"]) 
 
 
 func _on_SettingsButton_pressed():

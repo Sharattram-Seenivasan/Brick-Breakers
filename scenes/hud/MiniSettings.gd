@@ -17,7 +17,7 @@ func _ready():
 	musicLabel.set_position(Vector2(11,103))
 	musicLabel.set_size(Vector2(361,72))
 	
-	soundEffectsLabel.set_position(Vector2(16,211))
+	soundEffectsLabel.set_position(Vector2(16,300))
 	soundEffectsLabel.set_size(Vector2(506,137))
 	
 	musicSlider.set_value(save_file["music_volume"])
@@ -25,7 +25,7 @@ func _ready():
 	musicSlider.set_size(Vector2(450,20))
 	
 	soundEffectsSlider.set_value(save_file["sound_effects_volume"])
-	soundEffectsSlider.set_position(Vector2(29,357))
+	soundEffectsSlider.set_position(Vector2(29,400))
 	soundEffectsSlider.set_size(Vector2(450,20))
 	
 
