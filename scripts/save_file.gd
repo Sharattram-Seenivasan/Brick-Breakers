@@ -3,6 +3,7 @@ extends Node
 const SAVE_FILE = "user://save_file.save"
 
 var sessionScore = 0
+var sessionTime = 0
 var game_data = {}
 
 

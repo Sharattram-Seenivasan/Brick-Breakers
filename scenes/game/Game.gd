@@ -65,9 +65,3 @@ func brick_destroyed():
 		get_tree().paused = true
 		continuePopUp.popup()
 
-func _on_LeftArrow_pressed():
-	 Input.action_press("ui_left")
-
-func _on_RightArrow_pressed():
-	 Input.action_press("ui_right")
-

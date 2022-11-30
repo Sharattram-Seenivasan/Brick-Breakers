@@ -53,6 +53,7 @@ position = Vector2( 3, 1726 )
 scale = Vector2( 2, 1.5 )
 normal = ExtResource( 5 )
 shape = SubResource( 1 )
+action = "ui_left"
 visibility_mode = 1
 
 [node name="RightArrow" type="TouchScreenButton" parent="."]
@@ -60,6 +61,7 @@ position = Vector2( 558, 1722 )
 scale = Vector2( 2, 1.5 )
 normal = ExtResource( 6 )
 shape = SubResource( 2 )
+action = "ui_right"
 visibility_mode = 1
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
