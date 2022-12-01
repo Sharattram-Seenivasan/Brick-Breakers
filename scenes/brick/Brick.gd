@@ -9,14 +9,16 @@ onready var yellow_texture = load("res://icons/yellow_block.png")
 onready var red_texture = load("res://icons/red_block.png")
 
 onready var brick_sprite = get_node("BrickSprite")
+onready var brickHitbox = get_node("CollisionShape2D")
 
-var health = 3
+var health = 2
 
 signal brick_destroyed
 
 # Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass # Replace with function body.
+func _ready():
+	brick_sprite.set_scale(Vector2(1.2,1.2))
+	brickHitbox.set_scale(Vector2(1.2,1.2))
 
 func get_health():
 	return health
@@ -26,10 +28,14 @@ func get_health():
 #	switch_texture(health)
 
 func switch_texture(health):
-	if health == 3:
+#	if health == 3:
+#		brick_sprite.set_texture(green_texture)
+#	elif health == 2:
+#		brick_sprite.set_texture(yellow_texture)
+#	elif health == 1:
+#		brick_sprite.set_texture(red_texture)
+	if health == 2:
 		brick_sprite.set_texture(green_texture)
-	elif health == 2:
-		brick_sprite.set_texture(yellow_texture)
 	elif health == 1:
 		brick_sprite.set_texture(red_texture)
 

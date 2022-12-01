@@ -4,14 +4,16 @@ extends Node2D
 # var a = 2
 # var b = "text"
 var brick = preload("res://scenes/brick/Brick.tscn")
-var brick_width = 64
-var brick_height = 32
+var brick_width = 72
+var brick_height = 38
 var brick_count = 0
 
 var x_start = 0 + brick_width
 var y_start = 200
 
-var x_end = 1080
+#var x_end = 1080
+#var y_end = 740
+var x_end = 1050
 var y_end = 740
 
 var rng = RandomNumberGenerator.new()
