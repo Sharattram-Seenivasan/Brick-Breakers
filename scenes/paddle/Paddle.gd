@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 onready var paddleSprite = $Sprite
-onready var paddleCollisionShape = $CollisionShape2D
+onready var paddleCollisionShape = $CollisionPolygon2D
 onready var save_file = SaveFile.game_data
 # Declare member variables here. Examples:
 # var a = 2

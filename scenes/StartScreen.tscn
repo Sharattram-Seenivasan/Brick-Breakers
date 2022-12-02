@@ -2,7 +2,7 @@
 
 [ext_resource path="res://addons/github-integration/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://icons/PlayButton.png" type="Texture" id=2]
-[ext_resource path="res://backgrounds/start_screen_background_1080x1920.jpg" type="Texture" id=3]
+[ext_resource path="res://backgrounds/image_1080x1920.png" type="Texture" id=3]
 [ext_resource path="res://icons/settings-icon-16.png" type="Texture" id=4]
 [ext_resource path="res://icons/Undeafened.png" type="Texture" id=5]
 [ext_resource path="res://scenes/StartScreen.gd" type="Script" id=6]

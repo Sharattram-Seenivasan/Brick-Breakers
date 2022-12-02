@@ -21,10 +21,13 @@ func _process(delta):
 	hitSound.set_volume_db(save_file["sound_effects_volume"])
 
 func _physics_process(delta):
-	rng.randomize()
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		velocity = velocity.bounce(collision.normal) + Vector2(rng.randf_range(-0.1, 0.1),0)
+		velocity = velocity.bounce(collision.normal)
+		if abs(velocity.y) < 0.3*MOVE_SPEED:
+			rng.randomize()
+			var velocity_y = sign(velocity.y)*rng.randf_range(0.3,1)*MOVE_SPEED
+			velocity = Vector2(velocity.x,velocity_y)
 		handle_collision(collision.collider)
 
 

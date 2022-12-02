@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/hud/Scores.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/hud/GameOver.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/hud/Continue.tscn" type="PackedScene" id=9]
-[ext_resource path="res://backgrounds/start_screen_background_1080x1920.jpg" type="Texture" id=10]
+[ext_resource path="res://backgrounds/image_1080x1920.png" type="Texture" id=10]
 [ext_resource path="res://music/Yoshis Island - Athletic.mp3" type="AudioStream" id=11]
 [ext_resource path="res://addons/paulloz.colorblindness/colorblindness.gd" type="Script" id=12]
 [ext_resource path="res://scenes/hud/MiniSettings.tscn" type="PackedScene" id=13]
@@ -49,16 +49,16 @@ position = Vector2( 536, 1533 )
 [node name="ContinuePanel" parent="." instance=ExtResource( 9 )]
 
 [node name="LeftArrow" type="TouchScreenButton" parent="."]
-position = Vector2( 3, 1726 )
-scale = Vector2( 2, 1.5 )
+position = Vector2( -21, 1707 )
+scale = Vector2( 2.2, 1.7 )
 normal = ExtResource( 5 )
 shape = SubResource( 1 )
 action = "ui_left"
 visibility_mode = 1
 
 [node name="RightArrow" type="TouchScreenButton" parent="."]
-position = Vector2( 558, 1722 )
-scale = Vector2( 2, 1.5 )
+position = Vector2( 540, 1707 )
+scale = Vector2( 2.2, 1.7 )
 normal = ExtResource( 6 )
 shape = SubResource( 2 )
 action = "ui_right"

@@ -20,7 +20,7 @@ func _ready():
 	if save_file["colorblind_mode"]:
 		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
 	
-	if audio_player.get_volume_db() <= -60:
+	if save_file["music_volume"] <= -60 and save_file["sound_effects_volume"] <= -60:
 		muteButton.set_normal_texture(deafened)
 	else:
 		muteButton.set_normal_texture(undeafened)
@@ -40,11 +40,13 @@ func _on_SettingsButton_pressed():
 	get_tree().change_scene("res://scenes/Settings.tscn")
 
 func tryMute():
-	if audio_player.get_volume_db() <= -60:
+	if save_file["music_volume"] <= -60 and save_file["sound_effects_volume"] <= -60 :
 		save_file["music_volume"] = 0
+		save_file["sound_effects_volume"] = 0
 		muteButton.set_normal_texture(undeafened)
 	else:
 		save_file["music_volume"] = -60
+		save_file["sound_effects_volume"] = -60
 		muteButton.set_normal_texture(deafened)
 
 func _on_MuteButton_pressed():
