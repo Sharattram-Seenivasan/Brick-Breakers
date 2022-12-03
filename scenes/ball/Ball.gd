@@ -28,6 +28,10 @@ func _physics_process(delta):
 			rng.randomize()
 			var velocity_y = sign(velocity.y)*rng.randf_range(0.25,1)*MOVE_SPEED
 			velocity = Vector2(velocity.x,velocity_y)
+		if abs(velocity.x) < 0.15*MOVE_SPEED:
+			rng.randomize()
+			var velocity_x = sign(velocity.x)*rng.randf_range(0.15,1)*MOVE_SPEED
+			velocity = Vector2(velocity_x,velocity.y)
 		handle_collision(collision.collider)
 
 

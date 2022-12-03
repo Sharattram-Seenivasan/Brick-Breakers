@@ -34,7 +34,7 @@ margin_right = 522.0
 margin_bottom = 522.0
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[center]Game Over![/center]"
+bbcode_text = "[center][color=black]Game Over![/color][/center]"
 text = "Game Over!"
 
 [node name="ExitButton" type="TextureButton" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/box/Box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://scenes/hud/Continue.tscn" type="PackedScene" id=9]
 [ext_resource path="res://backgrounds/image_1080x1920.png" type="Texture" id=10]
 [ext_resource path="res://music/Yoshis Island - Athletic.mp3" type="AudioStream" id=11]
-[ext_resource path="res://addons/paulloz.colorblindness/colorblindness.gd" type="Script" id=12]
 [ext_resource path="res://scenes/hud/MiniSettings.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/hud/MiniExit.tscn" type="PackedScene" id=14]
 
@@ -67,9 +66,6 @@ visibility_mode = 1
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
 autoplay = true
-
-[node name="Colorblindness" type="CanvasLayer" parent="."]
-script = ExtResource( 12 )
 
 [connection signal="bottom_hit" from="Box" to="." method="_on_Box_bottom_hit"]
 [connection signal="next_level" from="ContinuePanel" to="." method="_on_ContinuePanel_next_level"]
