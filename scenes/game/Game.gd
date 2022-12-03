@@ -11,7 +11,6 @@ onready var continuePopUp = $ContinuePanel
 onready var continueExitButton = $ContinuePanel/ExitButton
 onready var continueButton = $ContinuePanel/ContinueButton
 onready var musicPlayer = $MusicPlayer
-onready var colorblindnessLayer = $"Colorblindness"
 
 onready var save_file = SaveFile.game_data
 #onready var GameOverPopUp = preload("res://scenes/hud/GameOver.tscn")
@@ -39,16 +38,9 @@ func _ready():
 	
 	musicPlayer.set_volume_db(save_file["music_volume"])
 	
-	if save_file["colorblind_mode"]:
-		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if save_file["colorblind_mode"]:
-		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
-	else:
-		colorblindnessLayer.Type = colorblindnessLayer.TYPE.None
 	musicPlayer.set_volume_db(save_file["music_volume"])
 
 func _on_Box_bottom_hit():

@@ -10,9 +10,6 @@ onready var slowButton = $"SlowButton"
 onready var largeButton = $"LargeButton"
 onready var PaddleMediumButton = $"PaddleMediumButton"
 onready var SmallButton = $"SmallButton"
-onready var ColorblindButton = $"ColorblindButton"
-onready var colorblindnessLayer = $"Colorblindness"
-
 onready var save_file = SaveFile.game_data
 
 # Declare member variables here. Examples:
@@ -26,9 +23,6 @@ func _ready():
 	musicSlider.set_value(save_file["music_volume"])
 	soundEffectsSlider.set_value(save_file["sound_effects_volume"])
 	
-	if save_file["colorblind_mode"]:
-		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
-		ColorblindButton.set_pressed_no_signal(true)
 		
 	if save_file["ball_speed"] == 450:
 		slowButton.pressed = true
@@ -47,11 +41,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if save_file["colorblind_mode"]:
-		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
-	else:
-		colorblindnessLayer.Type = colorblindnessLayer.TYPE.None
-
+	pass
 
 func _on_SoundEffectsSlider_drag_ended(value_changed):
 	if value_changed:
@@ -67,11 +57,6 @@ func _on_MusicSlider_drag_ended(value_changed):
 
 func _on_ExitButton_pressed():
 	get_tree().change_scene("res://scenes/StartScreen.tscn")
-
-
-func _on_ColorblindButton_toggled(button_pressed):
-	save_file["colorblind_mode"] = !save_file["colorblind_mode"]
-	SaveFile.save_data()
 
 
 func _on_SlowButton_toggled(_button_pressed):
