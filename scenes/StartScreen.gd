@@ -2,7 +2,6 @@ extends Node2D
 
 onready var muteButton = $Container/MuteButton
 onready var audio_player = $Container/MusicPlayer
-onready var colorblindnessLayer = $"Colorblindness"
 
 # textures
 onready var deafened = load("res://icons/Deafened.png")
@@ -17,8 +16,6 @@ func _ready():
 	get_viewport().set_size(Vector2(1080,1920))
 	audio_player.set_volume_db(save_file["music_volume"])
 	
-	if save_file["colorblind_mode"]:
-		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
 	
 	if save_file["music_volume"] <= -60 and save_file["sound_effects_volume"] <= -60:
 		muteButton.set_normal_texture(deafened)
@@ -28,11 +25,6 @@ func _ready():
 #
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if save_file["colorblind_mode"]:
-		colorblindnessLayer.Type = colorblindnessLayer.TYPE.Achromatopsia
-	else:
-		colorblindnessLayer.Type = colorblindnessLayer.TYPE.None
-	
 	audio_player.set_volume_db(save_file["music_volume"]) 
 
 

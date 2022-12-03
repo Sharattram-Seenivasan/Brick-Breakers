@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://backgrounds/image_1080x1920.png" type="Texture" id=2]
@@ -6,11 +6,9 @@
 [ext_resource path="res://icons/medium.png" type="Texture" id=4]
 [ext_resource path="res://icons/small.png" type="Texture" id=5]
 [ext_resource path="res://icons/slow.png" type="Texture" id=6]
-[ext_resource path="res://icons/off_button.png" type="Texture" id=7]
 [ext_resource path="res://icons/fast.png" type="Texture" id=8]
 [ext_resource path="res://scenes/Settings.gd" type="Script" id=9]
 [ext_resource path="res://icons/exit-icon-23.png" type="Texture" id=10]
-[ext_resource path="res://icons/on_button.png" type="Texture" id=11]
 [ext_resource path="res://addons/paulloz.colorblindness/colorblindness.gd" type="Script" id=12]
 [ext_resource path="res://icons/slow_pressed.png" type="Texture" id=13]
 [ext_resource path="res://icons/medium_pressed.png" type="Texture" id=14]
@@ -187,25 +185,6 @@ bbcode_enabled = true
 bbcode_text = "[color=black]Paddle Size"
 text = "Paddle Size"
 
-[node name="ColorblindButton" type="TextureButton" parent="."]
-margin_left = 27.0
-margin_top = 1513.0
-margin_right = 286.0
-margin_bottom = 1769.0
-toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 11 )
-
-[node name="Colorblind Label" type="RichTextLabel" parent="."]
-margin_left = 37.0
-margin_top = 1388.0
-margin_right = 1110.0
-margin_bottom = 1524.0
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = true
-bbcode_text = "[color=black]Colorblind Mode"
-text = "Colorblind Mode"
-
 [node name="ExitButton" type="TextureButton" parent="."]
 margin_left = 932.0
 margin_top = 40.0
@@ -222,5 +201,4 @@ texture_normal = ExtResource( 10 )
 [connection signal="toggled" from="LargeButton" to="." method="_on_LargeButton_toggled"]
 [connection signal="toggled" from="PaddleMediumButton" to="." method="_on_PaddleMediumButton_toggled"]
 [connection signal="toggled" from="SmallButton" to="." method="_on_SmallButton_toggled"]
-[connection signal="toggled" from="ColorblindButton" to="." method="_on_ColorblindButton_toggled"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

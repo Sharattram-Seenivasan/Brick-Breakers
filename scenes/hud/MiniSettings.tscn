@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://icons/settings-icon-16.png" type="Texture" id=2]
 [ext_resource path="res://scenes/hud/MiniSettings.gd" type="Script" id=3]
 [ext_resource path="res://icons/ticker.png" type="Texture" id=4]
+[ext_resource path="res://icons/CloseButton.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.176471, 0.964706, 0.0627451, 1 )
@@ -106,7 +107,16 @@ step = 5.0
 tick_count = 2
 ticks_on_borders = true
 
+[node name="CloseButton" type="TextureButton" parent="SettingsPanel"]
+margin_right = 210.0
+margin_bottom = 210.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 700, 0 )
+action_mode = 0
+texture_normal = ExtResource( 5 )
+
 [connection signal="pressed" from="SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="popup_hide" from="SettingsPanel" to="." method="_on_SettingsPanel_popup_hide"]
 [connection signal="drag_ended" from="SettingsPanel/musicSlider" to="." method="_on_musicSlider_drag_ended"]
 [connection signal="drag_ended" from="SettingsPanel/soundEffectsSlider" to="." method="_on_soundEffectsSlider_drag_ended"]
+[connection signal="pressed" from="SettingsPanel/CloseButton" to="." method="_on_CloseButton_pressed"]
