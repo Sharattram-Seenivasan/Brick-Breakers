@@ -28,6 +28,7 @@ func load_data():
 			"music_volume": 0.0,
 			"ball_speed": 650,
 			"paddle_size": 0.5,
+			"paddle_speed": 650,
 			"colorblind_mode": false,
 			"high_score": 0,
 		}

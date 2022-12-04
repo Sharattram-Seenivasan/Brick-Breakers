@@ -10,6 +10,9 @@ onready var slowButton = $"SlowButton"
 onready var largeButton = $"LargeButton"
 onready var PaddleMediumButton = $"PaddleMediumButton"
 onready var SmallButton = $"SmallButton"
+onready var paddleSlowButton = $"SlowPaddleSpeedButton"
+onready var paddleMediumButton = $"MediumPaddleSpeedButton"
+onready var paddleFastButton = $"FastPaddleSpeedButton"
 onready var save_file = SaveFile.game_data
 
 # Declare member variables here. Examples:
@@ -23,20 +26,43 @@ func _ready():
 	musicSlider.set_value(save_file["music_volume"])
 	soundEffectsSlider.set_value(save_file["sound_effects_volume"])
 	
-		
-	if save_file["ball_speed"] == 450:
-		slowButton.pressed = true
-	elif save_file["ball_speed"] == 650:
+	if save_file.has("ball_speed"):
+		if save_file["ball_speed"] == 450:
+			slowButton.pressed = true
+		elif save_file["ball_speed"] == 650:
+			ballMediumButton.pressed = true
+		elif save_file["ball_speed"] == 850:
+			fastButton.pressed = true
+	else:
+		save_file["ball_speed"] = 650
+		SaveFile.save_data()
 		ballMediumButton.pressed = true
-	elif save_file["ball_speed"] == 850:
-		fastButton.pressed = true
+		
 	
-	if save_file["paddle_size"] == 0.75:
-		largeButton.pressed = true
-	elif save_file["paddle_size"] == 0.50:
+	if save_file.has("paddle_size"):
+		if save_file["paddle_size"] == 0.75:
+			largeButton.pressed = true
+		elif save_file["paddle_size"] == 0.50:
+			PaddleMediumButton.pressed = true
+		elif save_file["paddle_size"] == 0.25:
+			SmallButton.pressed = true
+	else:
+		save_file["paddle_size"] = 0.50
+		SaveFile.save_data()
 		PaddleMediumButton.pressed = true
-	elif save_file["paddle_size"] == 0.25:
-		SmallButton.pressed = true
+	
+	if save_file.has("paddle_speed"):
+		if save_file["paddle_speed"] == 450:
+			paddleSlowButton.pressed = true
+		elif save_file["paddle_speed"] == 650:
+			paddleMediumButton.pressed = true
+		elif save_file["paddle_speed"] == 850:
+			paddleFastButton.pressed = true
+	else:
+		save_file["paddle_speed"] = 650
+		SaveFile.save_data()
+		paddleMediumButton.pressed = true
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,8 +98,6 @@ func _on_FastButton_toggled(_button_pressed):
 	SaveFile.save_data()
 
 
-
-
 func _on_LargeButton_toggled(button_pressed):
 	save_file["paddle_size"] = 0.75 
 	SaveFile.save_data()
@@ -86,4 +110,18 @@ func _on_PaddleMediumButton_toggled(button_pressed):
 
 func _on_SmallButton_toggled(button_pressed):
 	save_file["paddle_size"] = 0.25
+	SaveFile.save_data()
+
+
+func _on_SlowPaddleSpeedButton_toggled(button_pressed):
+	save_file["paddle_speed"] = 450
+	SaveFile.save_data()
+
+func _on_MediumPaddleSpeedButton_toggled(button_pressed):
+	save_file["paddle_speed"] = 650
+	SaveFile.save_data()
+
+
+func _on_FastPaddleSpeedButton_toggled(button_pressed):
+	save_file["paddle_speed"] = 850
 	SaveFile.save_data()

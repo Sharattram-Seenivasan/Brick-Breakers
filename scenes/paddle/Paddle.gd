@@ -4,10 +4,8 @@ extends StaticBody2D
 onready var paddleSprite = $Sprite
 onready var paddleCollisionShape = $CollisionPolygon2D
 onready var save_file = SaveFile.game_data
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-const MOVE_SPEED = 650
+
+var MOVE_SPEED;
 var velocity = Vector2()
 
 
@@ -15,6 +13,12 @@ var velocity = Vector2()
 func _ready():
 	paddleSprite.set_scale(Vector2(save_file["paddle_size"],0.5))
 	paddleCollisionShape.set_scale(Vector2(save_file["paddle_size"]*2,1))
+	
+	if save_file.has("paddle_speed"):
+		MOVE_SPEED = save_file["paddle_speed"]
+	else:
+		MOVE_SPEED = 650
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

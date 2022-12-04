@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/github-integration/fonts/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://backgrounds/image_1080x1920.png" type="Texture" id=2]
@@ -27,6 +27,12 @@ font_data = ExtResource( 1 )
 [sub_resource type="ButtonGroup" id=4]
 
 [sub_resource type="ButtonGroup" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+size = 75
+font_data = ExtResource( 1 )
+
+[sub_resource type="ButtonGroup" id=7]
 
 [node name="SettingScreen" type="Node2D"]
 script = ExtResource( 9 )
@@ -189,6 +195,46 @@ margin_bottom = 347.0
 rect_scale = Vector2( 0.35, 0.35 )
 texture_normal = ExtResource( 10 )
 
+[node name="Paddle Speed Label" type="RichTextLabel" parent="."]
+margin_left = 42.0
+margin_top = 1361.0
+margin_right = 539.0
+margin_bottom = 1470.0
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[color=black]Paddle Speed"
+text = "Paddle Speed"
+
+[node name="SlowPaddleSpeedButton" type="TextureButton" parent="."]
+margin_left = 19.0
+margin_top = 1487.0
+margin_right = 354.0
+margin_bottom = 1596.0
+toggle_mode = true
+group = SubResource( 7 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 13 )
+
+[node name="MediumPaddleSpeedButton" type="TextureButton" parent="."]
+margin_left = 362.0
+margin_top = 1484.0
+margin_right = 744.0
+margin_bottom = 1595.0
+toggle_mode = true
+group = SubResource( 7 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 14 )
+
+[node name="FastPaddleSpeedButton" type="TextureButton" parent="."]
+margin_left = 740.0
+margin_top = 1477.0
+margin_right = 1083.0
+margin_bottom = 1595.0
+toggle_mode = true
+group = SubResource( 7 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 15 )
+
 [connection signal="drag_ended" from="SoundEffectsSlider" to="." method="_on_SoundEffectsSlider_drag_ended"]
 [connection signal="drag_ended" from="MusicSlider" to="." method="_on_MusicSlider_drag_ended"]
 [connection signal="toggled" from="FastButton" to="." method="_on_FastButton_toggled"]
@@ -198,3 +244,6 @@ texture_normal = ExtResource( 10 )
 [connection signal="toggled" from="PaddleMediumButton" to="." method="_on_PaddleMediumButton_toggled"]
 [connection signal="toggled" from="SmallButton" to="." method="_on_SmallButton_toggled"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="toggled" from="SlowPaddleSpeedButton" to="." method="_on_SlowPaddleSpeedButton_toggled"]
+[connection signal="toggled" from="MediumPaddleSpeedButton" to="." method="_on_MediumPaddleSpeedButton_toggled"]
+[connection signal="toggled" from="FastPaddleSpeedButton" to="." method="_on_FastPaddleSpeedButton_toggled"]
