@@ -63,7 +63,7 @@ shape = SubResource( 2 )
 action = "ui_right"
 visibility_mode = 1
 
-[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 autoplay = true
 

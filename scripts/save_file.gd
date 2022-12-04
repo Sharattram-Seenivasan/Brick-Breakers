@@ -25,7 +25,7 @@ func load_data():
 	if not file.file_exists(SAVE_FILE):
 		game_data = {
 			"sound_effects_volume": 0.0,
-			"music_volume": 0.0,
+			"music_volume": -10.0,
 			"ball_speed": 650,
 			"paddle_size": 0.5,
 			"paddle_speed": 650,
